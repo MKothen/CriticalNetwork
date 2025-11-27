@@ -24,7 +24,6 @@ Documentation files:
 ├── CONSOLE_OUTPUT_GUIDE.md     → Understanding simulation output
 ├── FUNCTION_REFERENCE.md       → Detailed function documentation
 ├── ORGANIZATION_GUIDE.md       → Code structure explanation
-├── ARCHITECTURE.md             → Technical architecture
 └── FILE_ORGANIZATION_TREE.md   → Visual file structure
 ```
 
