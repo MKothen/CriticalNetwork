@@ -195,52 +195,7 @@ Orchestrates the entire workflow:
 5. Runs statistical tests
 6. Saves to Excel
 
-## 🔬 Typical Workflow for Students
 
-### Example 1: Simple Network Exploration
-
-```python
-# In config.py, set:
-N_TOTAL_NEURONS = 500          # Smaller for faster testing
-SIM_RUNTIME = 10 * second
-NUM_REPETITIONS = 1            # Just one run
-
-# Run and check the output:
-# results_phase_diagram_runs/[condition]/basic_activity_plot.png
-```
-
-### Example 2: Changing Neuron Properties
-
-```python
-# In config.py, modify adaptation strength:
-g_A = 8 * nS  # Double the original value (was 4 nS)
-
-# This will change how neurons adapt during sustained input
-# Re-run and compare results to baseline
-```
-
-### Example 3: E/I Balance Exploration
-
-```python
-# Test different E/I ratios:
-EI_ratio_values = np.array([0.1, 0.5, 1.0, 2.0])
-
-# Lower ratios = more inhibition (quieter network)
-# Higher ratios = more excitation (more active network)
-```
-
-### Example 4: Understanding Criticality
-
-```python
-# The three default conditions test criticality:
-EI_ratio_values = np.array([0.001, 0.385, 1.0])
-# 0.001: Subcritical 
-# 0.385: Critical 
-# 1.0: Supercritical 
-
-# Hypothesis: Critical state gives best RC accuracy
-# Run simulation and check results!
-```
 
 ## 📈 Output Files and Plots
 
@@ -259,56 +214,7 @@ EI_ratio_values = np.array([0.001, 0.385, 1.0])
 - `detailed_stimulus_raster.png`: RC trial visualization
 - `individual_avalanche_plots/`: Avalanche distributions
 
-## ⚠️ Common Issues
 
-### 1. Out of Memory
-**Solution**: Reduce `N_TOTAL_NEURONS` or `SIM_RUNTIME` in `config.py`
-
-```python
-N_TOTAL_NEURONS = 250  # Much smaller
-SIM_RUNTIME = 5 * second
-```
-
-### 2. No Avalanches Detected
-**Solution**: 
-- Check firing rates (should be 1-10 Hz)
-- Adjust `Imid_values_nA` (background current)
-- Try different E/I ratios
-
-### 3. Low RC Accuracy (near 10%)
-**Expected for some conditions!**
-- Random chance: 10% (10 digit classes)
-- Subcritical/Supercritical states often have poor separation
-- Critical state typically gives best performance (30-70%)
-
-### 4. Simulation Too Slow
-**Solution**:
-1. Reduce network size: `N_TOTAL_NEURONS = 200-500`
-2. Reduce simulation time: `SIM_RUNTIME = 5-10 seconds`
-3. Reduce repetitions: `NUM_REPETITIONS = 1-2`
-4. Reduce RC samples: `NUM_TRAIN_SAMPLES_MAX = 50`
-
-### 5. MNIST Download Fails
-**Solution**:
-1. Check internet connection
-2. Try manually downloading from: https://www.openml.org/d/554
-3. Data is cached after first successful download
-
-
-## 🎯 Performance Benchmarks
-
-Approximate runtimes on a modern laptop (Intel i7, 16 GB RAM):
-
-| Configuration | Runtime | Output Size |
-|--------------|---------|-------------|
-| Simple example | 2-5 min | ~5 MB |
-| Minimal main (N=500, 2 reps) | 20-40 min | ~50 MB |
-| Default (N=1000, 3 conditions, 8 reps) | 3-6 hours | ~500 MB |
-| Large (N=2000, 3 conditions, 8 reps) | 12-24 hours | ~2 GB |
-
-
-
-**You're all set! The codebase is complete, documented, and ready for your bachelor thesis research.** 🎉
 
 **Quick commands to get started:**
 ```bash
