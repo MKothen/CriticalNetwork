@@ -223,7 +223,7 @@ for i_idx, imid_val_nA in enumerate(Imid_values_nA):
                 mean_iei_seconds = calculate_average_iei(SpikeMon_exc, analysis_start)
 
                 if mean_iei_seconds and mean_iei_seconds > 0:
-                    adaptive_bin_width_seconds = 4* mean_iei_seconds
+                    adaptive_bin_width_seconds = 2* mean_iei_seconds
                     print(f"  Adaptive bin width: {adaptive_bin_width_seconds*1000:.2f} ms (2×IEI)")
 
                     # Extract spike times
